@@ -4,11 +4,12 @@
     <title></title>
 </head>
 <body>
-<img src="1.png">
+<img src="1.png" id="image">
 <button id="next">NEXT</button>
 <script src="jquery-1.11.1.min.js"></script>
 <script>
-    var songs = ['magic-forest.ogg', 'battle.ogg']
+    var songs = ['magic-forest.ogg', 'battle.ogg', 'win.ogg']
+    var images = ['2.png', '3.png']
     var audio = new Audio(songs.shift())
     audio.volume = 0
     audio.addEventListener('ended', function() {
@@ -29,6 +30,7 @@
     $('#next').on('click', function() {
         fadeOut(function() {
             audio.src = songs.shift()
+            $('#image').attr('src', images.shift())
             audio.play()
             fadeIn()
         })
