@@ -8,7 +8,7 @@
 <button id="next">NEXT</button>
 <script src="jquery-1.11.1.min.js"></script>
 <script>
-    var songs = ['magic-forest.ogg', 'adventure.ogg']
+    var songs = ['magic-forest.ogg', 'battle.ogg']
     var audio = new Audio(songs.shift())
     audio.volume = 0
     audio.addEventListener('ended', function() {
@@ -28,7 +28,7 @@
 
     $('#next').on('click', function() {
         fadeOut(function() {
-            audio.src = 'magic-forest.ogg' //songs.shift()
+            audio.src = songs.shift()
             audio.play()
             fadeIn()
         })
